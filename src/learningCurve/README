@@ -1,0 +1,7 @@
+2020-02-09
+
+Kiyoto Aramis Tanemura
+
+This directory contains the scripts to obtain a learning curve for LR classifiers on CASF-PPI-2017 dataset. Twenty LR classifiers (A through T) are independently trained on a fraction of the full dataset. Twenty replicates were chosen for full coverage of the training set on the smallest fraction.
+
+Once trained, the training and validation accuracies are returned by the cv_results_ attribute of the pickled sklearn.model_selection.RandomizedSearchCV class. Test accuracies are obtained by recording the accuracy of the classification on the partitioned test set.
