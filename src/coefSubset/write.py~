@@ -1,0 +1,25 @@
+# 28 October 2019
+
+# Kiyoto Aramis Tanemura
+
+# Write twenty job scripts for each fraction of the learning curve.
+
+import os
+
+subdirs = ['fivePercent', 'tenPercent', 'twentyPercent', 'thirtyPercent', 'fortyPercent', 'fiftyPercent']
+coefFracs = ['0.05', '0.1', '0.2', '0.3', '0.4', '0.5']
+theAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']
+
+for i in range(len(subdirs)):
+#    os.system('mkdir src/coefSubset/' + subdirs[i])
+#    os.system('mkdir results/coefSubset/' + subdirs[i])
+    for theLetter in theAlphabet:
+        command1 = 'sed "s/SUBDIR/' + subdirs[i] + '/g" src/coefSubset/lrClassifier2.py '
+        command2 = '| sed "s/COEFFRAC/' + coefFracs[i] + '/g" '
+        command3 = '| sed "s/IDENTIFIER/' + theLetter + '/g" '
+        command4 = '> src/coefSubset/' + subdirs[i] + '/lrClassifier' + theLetter + '.py'
+        os.system(command1 + command2 + command3 + command4)
+
+        command5 = 'sed "s/SUBDIR/' + subdirs[i] + '/g" src/coefSubset/runLrClassifier2.sb '
+        command6 = '> src/coefSubset/' + subdirs[i] +  '/runLrClassifier' + theLetter + '.sb'
+        os.system(command5 + command3 + command6)

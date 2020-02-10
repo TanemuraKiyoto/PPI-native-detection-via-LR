@@ -1,0 +1,5 @@
+2020-02-10
+
+Kiyoto Aramis Tanemura
+
+This directory contains scripts to train LR classifiers on top salient features. Salient features were chosen by the magnitude of the coefficients of features obtained from LR classifier trained on the entire dataset. 

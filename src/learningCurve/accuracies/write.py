@@ -1,0 +1,23 @@
+# 28 October 2019
+
+# Kiyoto Aramis Tanemura
+
+# Write twenty job scripts for each fraction of the learning curve.
+
+import os
+
+fractions = ['tenPercent', 'twentyPercent', 'thirtyPercent', 'fortyPercent', 'fiftyPercent', 'sixtyPercent', 'seventyPercent', 'eightyPercent', 'ninetyPercent', 'leaveOneOut']
+fracVals = ['0.1', '0.2', '0.3', '0.4', '0.5', '0.6', '0.7', '0.8', '0.9', '0.99']
+theAlphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T']
+
+for i in range(len(fractions)):
+    os.system('mkdir src/learningCurve/accuracies/testAcc/' + fractions[i])
+    for theLetter in theAlphabet:
+        command1 = 'sed "s/FRACTION/' + fractions[i] + '/g" src/learningCurve/accuracies/testAcc.py '
+        command2 = '| sed "s/IDENTIFIER/' + theLetter + '/g" '
+        command3 = '> src/learningCurve/accuracies/testAcc/' + fractions[i] + '/testAcc' + theLetter + '.py'
+        os.system(command1 + command2 + command3)
+
+#        command4 = 'sed "s/FRACTION/' + fractions[i] + '/g" src/LR/learningCurve/testAcc/runTestAcc.sb '
+#        command5 = '> src/LR/learningCurve/testAcc/' + fractions[i] + '/runTestAcc' + theLetter + '.sb'
+#        os.system(command4 + command2 + command5)

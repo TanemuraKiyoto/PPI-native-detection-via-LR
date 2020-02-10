@@ -1,0 +1,22 @@
+# 23 November 2019
+
+# Kiyoto Aramis Tanemura
+
+# Run a bunch of the scrips.
+
+import os
+
+inpath = 'src/coefSubset/evaluate/'
+
+os.system('python ' + inpath + 'appendRMSD.py')
+os.system('python ' + inpath + 'individualSR.py')
+os.system('python ' + inpath + 'getSR.py')
+os.system('python ' + inpath + 'nativeRank.py')
+os.system('python ' + inpath + 'firstRMSD.py')
+os.system('python ' + inpath + 'firstDecoyRMSD.py')
+
+
+src/coefSubset/evaluate/
+#rank.py#       firstDecoyRMSD.py   firstRMSD.py~  formatSR.py   getSR.py~       individualROC.py   individualSR.py~  rank.py   runRank.sb     runTestAcc.sb~  summarizeROC.py   testAcc.py   write.py~
+appendRMSD.py   firstDecoyRMSD.py~  formatROC.py   formatSR.py~  getTestAcc.py   individualROC.py~  nativeRank.py     rank.py~  runRank.sb~    submit.py       summarizeROC.py~  testAcc.py~
+appendRMSD.py~  firstRMSD.py        formatROC.py~  getSR.py      getTestAcc.py~  individualSR.py    nativeRank.py~    ranks     runTestAcc.sb  submit.py~      testAcc           write.py
