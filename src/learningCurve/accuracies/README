@@ -1,0 +1,7 @@
+2020-02-09
+
+Kiyoto Aramis Tanemura
+
+Train and validation accuracies are obtained by running trainValAcc.py, which retrieves the scores from the cv_results_ attribute of the sklearn.model_selection.RandomizedSearchCV class.
+Test accuracies are obtained by running each script in testAcc directory as separate files in results/learningCurve/<FRACTION>/testAcc/ . These scripts are written by write.py with testAcc.py as the template.  The individual results are aggregated by getTestAccuracies.py .
+train, validation, and test accuracies are summarized in one csv file by executing results.py

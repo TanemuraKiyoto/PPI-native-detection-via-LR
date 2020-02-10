@@ -1,0 +1,36 @@
+# 9 November 2019
+
+# Kiyoto Aramis Tanemura
+
+# Obtain descriptive statistics for native ranks determined by LR classifier.
+
+import os
+import pandas as pd
+import numpy as np
+
+for theDir in ['fifth', 'tenth']:
+
+    inPath = '/mnt/home/tanemur1/6May2019/2019-11-11/results/coefSubset/evaluate/' + theDir + '/appendRMSD/'
+    outPath = '/mnt/home/tanemur1/6May2019/2019-11-11/results/coefSubset/evaluate/' + theDir + '/'
+
+    fileList = os.listdir(inPath)
+    firstRMSDlist = []
+
+    for theFile in fileList:
+        with open(inPath + theFile, 'r') as f:
+            lines = f.readlines()
+            vals = lines[1].split(',')
+            firstRMSD = float(vals[2])
+            if vals[0] == '0':
+                vals = lines[2].split(',')
+                firstRMSD = float(vals[2])
+    
+        firstRMSDlist.append(firstRMSD)
+
+    print('mean: ', np.mean(firstRMSDlist))
+    print('median: ', np.median(firstRMSDlist))
+
+    outputDf = pd.DataFrame({'LR': firstRMSDlist})
+
+    with open(outPath + 'firstDecoyRMSD.csv', 'w') as g:
+        outputDf.to_csv(g)

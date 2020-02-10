@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --time=2:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=10G
+#SBATCH --nodes=1
+#SBATCH --job-name=19Nov2019_rank_1bj1_J_tenPercent
+#SBATCH --output=19Nov2019_rank_1bj1_J_tenPercent.o
+#SBATCH --error=19Nov2019_rank_1bj1_J_tenPercent.e
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-user=tanemur1@msu.edu
+#SBATCH -A merzjrke
+
+cd /mnt/scratch/tanemur1/
+
+python /mnt/home/tanemur1/6May2019/2019-11-11/src/coefSubset/evaluate/ranks/tenPercent/rank_1bj1_J.py

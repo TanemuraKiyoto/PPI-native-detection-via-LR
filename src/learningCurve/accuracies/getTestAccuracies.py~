@@ -1,0 +1,35 @@
+# 1 November 2019
+
+# Kiyoto Aramis Tanemura
+
+# Summarize test accuracy results.
+
+import pandas as pd
+import numpy as np
+import os
+
+outPath = 'results/learningCurve/'
+
+dirList = ['tenPercent', 'twentyPercent', 'thirtyPercent', 'fortyPercent', 'fiftyPercent', 'sixtyPercent', 'seventyPercent', 'eightyPercent', 'ninetyPercent', 'leaveOneOut']
+fracVal = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.99]
+
+outputDf = pd.DataFrame()
+
+for i in range(len(dirList)):
+    inPath = 'results/learningCurve/' + dirList[i] + '/testAcc/'
+    outPath = inPath
+    fileList = [x for x in os.listdir(inPath) if x[-4:] == '.txt']
+    test_score = []
+    indices = []
+    for theFile in fileList:
+        with open(inPath + dirList[i] + '/' + theFile, 'r') as f:
+            val = float(f.readlines()[3].split(':')[1].strip())
+        theLetter = theFile[0]
+        test_score.append(val)
+        indices.append(theLetter)
+    fractionDf = pd.DataFrame({'mean_test_score': test_score}, index = indices)
+    fractionDf['fraction'] = fracVal[i]
+    outputDf = outputDf.append(fractionDf)
+
+with open(outPath + 'results.csv', 'w') as g:
+    outputDf.to_csv(g)

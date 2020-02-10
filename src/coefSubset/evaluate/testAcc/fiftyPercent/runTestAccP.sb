@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#SBATCH --time=1:00:00
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=28
+#SBATCH --mem=50G
+#SBATCH --nodes=1
+#SBATCH --job-name=19Nov2019_testAccPfiftyPercent
+#SBATCH --output=19Nov2019_testAccPfiftyPercent.o
+#SBATCH --error=19Nov2019_testAccPfiftyPercent.e
+#SBATCH --mail-type=FAIL
+#SBATCH --mail-user=tanemur1@msu.edu
+#SBATCH -A merzjrke
+
+cd /mnt/scratch/tanemur1/
+
+python /mnt/home/tanemur1/6May2019/2019-11-11/src/coefSubset/evaluate/testAcc/fiftyPercent/testAccP.py

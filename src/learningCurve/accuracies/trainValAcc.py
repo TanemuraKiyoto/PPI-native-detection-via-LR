@@ -8,7 +8,7 @@ import os
 import pickle
 import pandas as pd
 
-inPath = 'results/LR/learningCurve/'
+inPath = 'results/learningCurve/'
 outPath = inPath
 
 dirList = [x for x in os.listdir(inPath) if os.path.isdir(inPath + x)]
