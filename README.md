@@ -5,7 +5,7 @@ The LR scoring function was trained on Critical Assessment of Scoring Function P
 
 Descriptors were calculated using code from Jun Pei's GitHub repository (https://github.com/JunPei000/protein_folding-decoy-set). Pei's repository is associated with the following publication:
 
-Random Forest Refinement of the KECSA2 Knowledge-Based Scoring Function for Protein Decoy Detection Jun Pei, Zheng Zheng, and Kenneth M. Merz, Jr. Journal of Chemical Information and Modeling Article ASAP DOI: 10.1021/acs.jcim.8b00734
+Random Forest Refinement of the KECSA2 Knowledge-Based Scoring Function for Protein Decoy Detection Jun Pei, Zheng Zheng, and Kenneth M. Merz, Jr. Journal of Chemical Information and Modeling 2019, 59, 5, 1919-1929. DOI: 10.1021/acs.jcim.8b00734
 
 Note: many of the scripts were written to have several replicates run in parallel. If the script 'write.py' is present in the directory, we recommend you modify the write.py script into a submission script to execute the individual scripts written as an output of write.py .
 
