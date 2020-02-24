@@ -21,22 +21,18 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.preprocessing import StandardScaler
 from random import shuffle, random
 
-os.chdir('/mnt/scratch/tanemur1/')
-
 toc = time()
 
 # Randomize input file orders
-pathToInput = '/mnt/scratch/tanemur1/CASF-PPI/descriptors/nonb/'
-pathToOutput = '/mnt/home/tanemur1/6May2019/2019-11-11/results/coefSubset/tenPercent/'
+pathToInput = 'data/CASF-PPI-2017/comparison_descriptors/'
+pathToOutput = 'results/coefSubset/tenPercent/'
 fileNames = [x for x in os.listdir(pathToInput) if '.csv' in x]
 shuffle(fileNames) # note: shuffle is in-place. Do not assign to variable
 
 # Specify training set fraction
 
 train_fraction = 0.9
-
 train_file_number = int(len(fileNames) * train_fraction + 0.5)
-
 trainFiles = fileNames[:train_file_number]
 
 x_train = pd.DataFrame()
@@ -44,13 +40,9 @@ y_train = pd.DataFrame()
 
 # Read individual csv for comparison descriptors, append to train_data, and partition to x_train, y_train
 fileNamesWithPath = [pathToInput + x for x in trainFiles]
-#for i in subdirs[:RELAX + 1]:
-#    fileNamesWithPath += [pathToInput + i + fileName for fileName in trainFiles]
-
-# Debug 19 November 2019. The map function executed by workers is incompatible with the large size of the list of dataframes for certain jobs. I break the list into three regardless of length of list to circumvent the size limit.
 
 coefFrac = 0.1
-coefs = pd.read_csv('/mnt/home/tanemur1/6May2019/2019-11-11/results/medianCoefs.csv', index_col = 0, header = None, names = ['coefficients'])
+coefs = pd.read_csv('results/medianCoefs.csv', index_col = 0, header = None, names = ['coefficients'])
 coefs['absVal'] = np.abs(coefs['coefficients'])
 coefs.sort_values(by = 'absVal', ascending = False, inplace = True)
 coefs = coefs[:int(14028 * coefFrac + 0.5)]
@@ -64,8 +56,10 @@ def read_csv(filePath):
     return df
 
 print('begin read training set')
-with Pool(np.min([train_file_number, 28])) as p:
-    train_dataList = list(p.map(read_csv, fileNamesWithPath))
+#with Pool(np.min([train_file_number, 28])) as p:
+#    train_dataList = list(p.map(read_csv, fileNamesWithPath))
+
+train_dataList = list(map(read_csv, fileNamesWithPath))
 
 print('begin append DF | ', (time() - toc) / 60, ' min')
 

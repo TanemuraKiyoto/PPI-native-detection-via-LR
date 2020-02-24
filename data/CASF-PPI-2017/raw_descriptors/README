@@ -1,0 +1,5 @@
+2020-02-10
+
+Kiyoto Aramis Tanemura
+
+My intention was to have only '1ay7.csv' in this directory as an example file. unfortunately, the file exceeds the size limit of GitHub of 100 MB to push. So, run pasteDescriptors.py to combine partial files into 1ay7.csv .

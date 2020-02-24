@@ -14,6 +14,7 @@ os.system('mkdir results/coefSubset/')
 
 for i in range(len(subdirs)):
     os.system('mkdir results/coefSubset/' + subdirs[i])
+    os.system('mkdir results/coefSubset/' + subdirs[i] + '/testAcc/')
     for theLetter in theAlphabet:
         command1 = 'sed "s/SUBDIR/' + subdirs[i] + '/g" src/coefSubset/lrClassifier.py '
         command2 = '| sed "s/COEFFRAC/' + coefFracs[i] + '/g" '
