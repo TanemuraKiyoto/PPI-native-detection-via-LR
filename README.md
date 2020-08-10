@@ -24,3 +24,7 @@ We posted a video explaining the work in English and in Japanese.
 ### Spoken Abstract: "Refinement of pairwise potentials ... to score protein-protein interactions"
 <a href="https://youtu.be/Np98yvXiPaQ" target="_blank"><img src="http://img.youtube.com/vi/Np98yvXiPaQ/0.jpg" 
 alt="Presentation of the project in English" width="240" height="180" border="10" /></a>
+
+### Spoken Abstract: 「タンパク質間相互作用のスコアリング関数である力場のロジスティック回帰による精密化」
+<a href="https://youtu.be/oJqzEIQ-99A" target="_blank"><img src="http://img.youtube.com/vi/oJqzEIQ-99A/0.jpg"
+alt="Presentation of the project in Japanese" width="240" height="180" border="10" /></a>
